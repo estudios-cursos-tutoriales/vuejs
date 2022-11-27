@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Curso Vue</title>
 </head>
 <body>
     <script src="https://unpkg.com/vue@next"></script>
-    <div id="app"></div>
+    <div id="app">
+        <img v-bind:src="img" v-bind:alt="img">
+    </div>
     <script>
         const vm = Vue.createApp({
             data() {
                 return {
-                    text: "<p>Hola Vue</p>"
+                    attr: "src",
+                    img: "https://picsum.photos/800/800",
                 };
             },
-            template: `<div v-once v-html="text"></div>`
+            template: ` <img v-bind:[attr]="img">`
         }).mount("#app");
         console.log(vm);
     </script>

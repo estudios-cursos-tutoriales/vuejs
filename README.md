@@ -1,5 +1,1 @@
-### 05 Directivas
- 
-- v-text
-- v-once
-- v-html
+### 07 Atributos Reactivos
