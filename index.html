@@ -11,29 +11,33 @@
 </head>
 <body class="bg-dark">
     
-    <div id="app" class="container mt-2">
-        <img v-bind:src="img" v-bind:alt="img">
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div id="app" class="">
+    
+                </div>
+    
+            </div>
+        </div>
     </div>
     <script>
         const vm = Vue.createApp({
             data() {
                 return {
-                    evt: "submit",
-                    counter: 0
+                    text: "Hola Vue"
                 };
-            },
-            methods: {
-                increment(){
-                    this.counter++;
-                    console.log("Click");
-                }
-            },
-            template: `<form v-on:[evt].prevent="increment">
-                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <button type="button" class="btn btn-warning">+</button>
-                                <button type="button" class="btn btn-warning">-</button>
-                            </div>
-                        </form>`
+            },        
+            template: `
+                <h2 class="display-4 text-center text-white">{{ text }}</h2>
+                <div class="mb-3">
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        v-model="text"
+                    >
+                </div>
+            `
         }).mount("#app");
         console.log(vm);
     </script>
