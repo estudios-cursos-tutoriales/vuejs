@@ -28,7 +28,12 @@
                     console.log("Click");
                 }
             },
-            template: `<form v-on:[evt].prevent="increment"><button class="btn btn-warning btn-lg">{{ counter }}</button></form>`
+            template: `<form v-on:[evt].prevent="increment">
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <button type="button" class="btn btn-warning">+</button>
+                                <button type="button" class="btn btn-warning">-</button>
+                            </div>
+                        </form>`
         }).mount("#app");
         console.log(vm);
     </script>
