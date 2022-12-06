@@ -9,12 +9,12 @@
     <script src="https://unpkg.com/vue@next"></script>
     <title>Curso Vue</title>
 </head>
-<body class="bg-dark">
+<body>
     
     <div class="container mt-2">
         <div class="row">
-            <div class="col-lg-6 offset-lg-3">
-                <div id="app" class="">
+            <div class="col-lg-8 offset-lg-2">
+                <div id="app" class="bg-gray">
     
                 </div>
     
@@ -25,22 +25,29 @@
         const vm = Vue.createApp({
             data() {
                 return {
-                    firtName: "Yormi",
-                    lastName:  "Altamiranda",
-                    now: new Date()
+                    text: "Puerta Cerrada",
+                    open: false,
                 };
             },
-            computed:{
-                fullName(){
-                    return this.firtName + " " + this.lastName;
-                },
-                today(){
-                    return this.now.toLocaleDateString() 
+            watch:{
+                open(value) {
+                    if (value){
+                        this.text = "Puerta Abierta"
+                    } else{
+                        this.text = "Puerta Cerrada"
+                    }
                 }
-            },      
+            },
+            computed:{
+                label() {
+                    return this.open ? "Cerrar" : "Abrir";
+                }
+            },
             template: `
-                <h2 class="display-5 text-center text-white">{{ fullName }}</h2>
-                <h2 class="display-6 text-center text-white">{{ today }}</h2>
+                <h2 class="display-1 text-center">{{ text }}</h2>
+                <p class="text-center">
+                <button class="btn btn-warning btn-lg" @click="open = !open">{{ label }}</button>
+                <p>
             `
         }).mount("#app");
         console.log(vm);
