@@ -9,7 +9,7 @@
     <title>Curso Vue</title>
     
 </head>
-<body>
+<body class="bg-slate-900">
     <div id="app"></div>
     <script>
         const vm = Vue.createApp({
@@ -17,7 +17,11 @@
                 return {
                     text: "Puerta Cerrada",
                     open: false,
-                    username: ""
+                    username: "",
+                    posts: [{
+                        title: "Titulo 1",
+                        description: "Lorem ipsum..."
+                    }]
                 };
             },
             watch:{
@@ -38,18 +42,33 @@
                     return this.open ? ['open'] : ['closed'];
                 }
             },
+            methods: {
+                
+            },
             template: `
             <div class="container" :class="styles">
                 <h2>{{ text }}</h2>
 
                 <div v-if="open">
-                    <p>Hola, {{ username }}<p>
+                    <h2 class="headline-2">Hola, {{ username }}<p>
+
+                    <div class="post" v-for="(item, i) in posts">
+                        <h3 class="post-title">{{ item.title}}</h3>
+                        <p class="post-description ">{{ item.description}}</p>
+                    </div>
                 </div>
 
                 <div v-else> 
                     <div>Username</div>
-                    <input type="text" v-model="username">    
+                    <input type="text" v-model="username" placeholder="@username">    
                 </div>
+                    
+                <form v-if="open" v-on:submit.prevent="submit">
+                    <input type="text" placeholder="Titulo">
+                    <input type="text" placeholder="Descripción">
+                    <button >Publicar</button>
+                </form>
+
 
                 <button @click="open = !open">
                     <div v-if="!open">Acceder</div>    
