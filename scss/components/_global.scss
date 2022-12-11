@@ -1,0 +1,42 @@
+*,*::before,*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+#app, .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+
+.closed {
+    background-color: #eca1a6;
+}
+.open {
+    background-color: #b5e7a0;
+}
+
+.headline-2{
+    text-align: center;
+    color: #0d2403;
+    font-weight: normal;
+    font-size: 30px;
+}
+
+

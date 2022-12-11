@@ -16,6 +16,30 @@ html, body {
   height: 100vh;
 }
 
+#app, .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.closed {
+  background-color: #eca1a6;
+}
+
+.open {
+  background-color: #b5e7a0;
+}
+
+.headline-2 {
+  text-align: center;
+  color: #0d2403;
+  font-weight: normal;
+  font-size: 30px;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -23,6 +47,49 @@ header {
   background: #F0E9D2;
   width: 100%;
   height: 60px;
+}
+
+button {
+  margin-top: 24px;
+  border: none;
+  background-color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=text] {
+  width: 100%;
+  border: 2px solid #9cd683;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input[type=text]:focus {
+  border-color: #89c56f;
+  box-shadow: 0 0 8px 0 #538040;
+}
+
+.post {
+  background: #9cd683;
+  padding: 5px 10px;
+  border-radius: 4px;
+  width: 400px;
+  margin: 5px 0;
+}
+.post-title {
+  text-align: center;
+  color: #0d2403;
+  font-size: 18px;
+}
+.post-description {
+  text-align: center;
+  color: #0d2403;
+  font-size: 16px;
 }
 
 footer {
