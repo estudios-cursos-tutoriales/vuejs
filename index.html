@@ -6,30 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://unpkg.com/vue@next"></script>
-    <title>.:: Curso Vue | 21 Instancias de Componentes ::.</title>
+    <title>.:: Curso Vue | 22 Vue Progresivo ::.</title>
     
 </head>
 <body>
     <script src="https://unpkg.com/vue@next"></script>
-    <div id="app"></div>
+    <div id="app">{{ text }}</div>
     <script>
-        const app = Vue.createApp({
+        const vm = Vue.createApp({
             data() {
                 return {
-                    text: "Hola Vue"
+                    text: "Hola vue"
                 };
-            },
-            template: `<v-button ref="elemento" :label="text"></v-button>`
-        });
-
-        app.component("v-button", {
-            props: ["label"],
-            template: `<button>{{ label }}</button>`
-        });
-
-        const vm = app.mount("#app");
-
-        console.log(vm.$props);
+            }
+        }).mount("#app");
+        console.log(vm);
     </script>
 </body>
 </html>
