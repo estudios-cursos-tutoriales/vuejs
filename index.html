@@ -6,43 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://unpkg.com/vue@next"></script>
-    <title>.:: Curso Vue | 16 Slots ::.</title>
+    <title>.:: Curso Vue | 17 Props ::.</title>
     
 </head>
-<body class="bg-slate-900">
+<body>
+    <script src="https://unpkg.com/vue@next"></script>
     <div id="app"></div>
     <script>
-
-    
-       const app = Vue.createApp({
+        const app = Vue.createApp({
+            data() {
+                return {
+                    items: ["uno", "dos", "tres", ,]
+                };
+            },
             template: `
-                <div class="body">
-                    <v-layout>
-                        <template v-slot:header>
-                            <h2>Logo<h2>
-                        </template>
-
-                        <template v-slot:footer>
-                            <p>Laborum id reprehenderit eu aliqua amet consequat veniam occaecat.<p>
-                        </template>
-                    </v-layout>
-                </div>
+                <ul>
+                    <v-item v-for="item in items" v-bind:text="item"></v-item> 
+                </ul>
             `
-         
         });
 
-        app.component("v-layout", {
-            template: `
-                <header>
-                    <slot name="header"></slot>
-                </header>
-                
-                <footer>
-                    <slot name="footer"></slot>    
-                </footer>
-                `
+        app.component("v-item", {
+            props: {
+                text: {
+                    default: "Texto vacio"
+                }
+            },
+            template: `<li>{{ text }}</li>`
         });
-        
+
         const vm = app.mount("#app");
     </script>
 </body>
